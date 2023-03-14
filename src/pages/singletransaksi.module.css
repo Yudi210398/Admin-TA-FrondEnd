@@ -1,0 +1,50 @@
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&family=Fredoka+One&family=Nerko+One&family=Righteous&display=swap");
+
+.title {
+  font-size: large;
+  font-size: 30px;
+  font-family: "Fredoka One", cursive;
+}
+
+.content {
+  padding-left: 80px;
+  padding-right: 20px;
+  margin-top: -20px;
+}
+
+.subtitle {
+  font-family: "Righteous", cursive;
+  font-size: 18px;
+  color: red;
+  margin-top: 30px;
+}
+
+.datas {
+  font-family: "Archivo Black", sans-serif;
+  margin-top: 30px;
+  line-height: 26px;
+}
+
+.gambar {
+  margin-top: 15px;
+}
+
+.gambar:hover {
+  cursor: pointer;
+  border: rgb(223, 67, 67) 1px solid;
+}
+
+.pesanverify {
+  margin: auto;
+
+  font-size: 30px;
+  font-family: Righteous;
+}
+
+.titleproduk {
+}
+
+.down {
+  margin-top: 10px;
+  margin-right: 10px;
+}

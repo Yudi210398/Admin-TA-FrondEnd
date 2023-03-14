@@ -1,0 +1,23 @@
+.card-body-icon {
+  position: absolute;
+  z-index: 0;
+  right: 1px;
+  opacity: 0.5;
+  bottom: 28px;
+  font-size: 90px;
+}
+
+.bg-primary {
+  height: 10rem;
+}
+
+.card-title {
+  color: white;
+  text-transform: uppercase;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.display-4 {
+  color: white;
+}

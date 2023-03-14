@@ -1,0 +1,9 @@
+.hidden {
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+.styleImg {
+  height: 100%;
+  width: 500px;
+}

@@ -1,0 +1,37 @@
+.navIn {
+  padding-top: 10px;
+  width: 100%;
+  padding-left: 19px;
+  padding-right: 10px;
+  transition: 350ms;
+  text-align: justify;
+}
+
+.navOut {
+  padding-top: 10px;
+  transition: 350ms;
+  padding-right: 10px;
+
+  width: 100%;
+  padding-left: 269px;
+  text-align: justify;
+}
+
+.borders {
+  border-bottom: 1px black solid;
+}
+
+.tombolUp {
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+}
+
+.authorder {
+  text-align: center;
+  font-size: large;
+  text-transform: uppercase;
+  margin-top: 40px;
+  color: red;
+}

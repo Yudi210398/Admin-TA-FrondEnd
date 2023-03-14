@@ -1,0 +1,18 @@
+.error {
+  color: red;
+}
+
+.margin {
+  margin-bottom: 10px;
+  margin-top: 27px;
+}
+
+[type="button"]:not(:disabled),
+[type="reset"]:not(:disabled),
+[type="submit"]:not(:disabled),
+button:not(:disabled) {
+  cursor: pointer;
+  margin-top: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
+}

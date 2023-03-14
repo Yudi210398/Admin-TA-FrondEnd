@@ -1,0 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=Archivo:wght@100&family=Monoton&family=Rubik+Distressed&family=Rubik+Marker+Hatch&display=swap");
+
+.posisi {
+  margin-top: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.gambarMargin {
+  margin-left: 50px;
+  margin-top: 10px;
+}
+
+.allMArgin {
+  margin-top: 30px;
+}
+
+.paraf {
+  font-family: "Bungee", cursive;
+  line-height: 22px;
+  font-size: 14px;
+}
