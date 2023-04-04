@@ -8,24 +8,41 @@ function Order(props) {
   const { data, pesanVerify } = useOrderHttp();
   const dataReverse = data.reverse();
   let dataorder = [];
-
+  console.log(props);
   dataReverse.map((datas) => {
-    if (props?.sukseskirim) {
-      console.log(`tolol`);
-      if (datas?.resiPengiriman && datas?.gambarResi.url) dataorder.push(datas);
-    }
-    if (props?.gagalkirim)
-      if (datas?.resiPengiriman === null && !datas?.gambarResi.url) {
-        console.log(datas);
-        console.log(`goblok`);
-        console.log(!datas?.resiPengiriman);
-        dataorder.push(datas);
-      }
+    if (
+      props?.transaksiselesai &&
+      datas?.validasiPenerima.suksesTerima === "Telah terima"
+    )
+      dataorder.push(datas);
+    else if (
+      props?.transaksibelumselesai &&
+      !datas?.validasiPenerima.suksesTerima
+    )
+      dataorder.push(datas);
+    else if (
+      props?.sukseskirim &&
+      datas?.resiPengiriman &&
+      datas?.gambarResi.url
+    )
+      dataorder.push(datas);
+    else if (
+      props?.gagalkirim &&
+      datas?.resiPengiriman === null &&
+      !datas?.gambarResi.url
+    )
+      dataorder.push(datas);
+
     return dataorder;
   });
 
   const resultORderFix =
-    props.gagalkirim || props.sukseskirim ? dataorder : dataReverse;
+    props.gagalkirim ||
+    props.transaksibelumselesai ||
+    props.sukseskirim ||
+    props.transaksiselesai
+      ? dataorder
+      : dataReverse;
   return (
     <Container>
       <table className="table table-striped table-hover">
@@ -34,8 +51,8 @@ function Order(props) {
             <th scope="col">NO</th>
             <th scope="col">NO ORDER</th>
             <th scope="col">NAMA USER</th>
-            <th scope="col">JUMLAH PRODUCT</th>
             <th scope="col">PENGIRIMAN</th>
+            <th scope="col">TRANSAKSI SELESAI</th>
             <th scope="col">DETAIL TRANSAKSI</th>
           </tr>
         </thead>
@@ -48,6 +65,7 @@ function Order(props) {
               idOrder={hasil._id}
               namaOder={hasil.userId.namaUser}
               jumlahProduk={hasil.produks?.length}
+              orderSelesai={hasil?.validasiPenerima.suksesTerima}
             />
           ))}
         </tbody>

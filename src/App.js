@@ -17,6 +17,8 @@ import HalamanEditProduk from "./LihatTransaksiDetailProduk/Parent/HalamanEditPr
 import ParerntSuksesTransaksi from "./pages/components/singleTransaksi/ParentSuksesTransaksi/ParerntSuksesTransaksi";
 import PengirimanSukses from "./pages/components/delivery/PengirimanSukses";
 import BelumKirim from "./pages/components/delivery/BelumKirim";
+import { OrderSelesai } from "./pages/components/allOrder/OrderNotif/OrderSelesai";
+import { OrderBelumSelesai } from "./pages/components/allOrder/OrderNotif/OrderBelumSelesai";
 
 function App() {
   const { datas } = useHttpRefreshToken();
@@ -84,6 +86,11 @@ function App() {
           <Route path="/reports/reports3" element={<ReportsThree />} />
           <Route path="/berhasikirim" element={<PengirimanSukses />} />
           <Route path="/gagalkirim" element={<BelumKirim />} />
+          <Route path="/selesaitransaksi" element={<OrderSelesai />} />
+          <Route
+            path="/belumselesaitransaksi"
+            element={<OrderBelumSelesai />}
+          />
           <Route path="/team" element={<Team />} />
           <Route path="/products/tambahproduct" element={<ProductTambah />} />
 

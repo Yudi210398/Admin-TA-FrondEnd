@@ -23,13 +23,13 @@ export const SidebarData = [
     subNav: [
       {
         title: "ORDER SUCCESS",
-        path: "/order/berhasil",
+        path: "/selesaitransaksi",
         icon: <IoIcons.IoIosPaper />,
         cName: "sub-nav",
       },
       {
         title: "ORDER FAILED",
-        path: "/order/gagal",
+        path: "/belumselesaitransaksi",
         icon: <IoIcons.IoIosPaper />,
         cName: "sub-nav",
       },
