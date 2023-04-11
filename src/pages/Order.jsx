@@ -57,17 +57,20 @@ function Order(props) {
           </tr>
         </thead>
         <tbody>
-          {resultORderFix.map((hasil, i) => (
-            <OrderList
-              key={i}
-              no={i + 1}
-              pengiriman={hasil?.resiPengiriman && hasil?.gambarResi && true}
-              idOrder={hasil._id}
-              namaOder={hasil.userId.namaUser}
-              jumlahProduk={hasil.produks?.length}
-              orderSelesai={hasil?.validasiPenerima.suksesTerima}
-            />
-          ))}
+          {resultORderFix.map((hasil, i) => {
+            console.log(hasil?.userId);
+            return (
+              <OrderList
+                key={i}
+                no={i + 1}
+                pengiriman={hasil?.resiPengiriman && hasil?.gambarResi && true}
+                idOrder={hasil._id}
+                namaOder={hasil?.userId.namaUser}
+                jumlahProduk={hasil.produks?.length}
+                orderSelesai={hasil?.validasiPenerima.suksesTerima}
+              />
+            );
+          })}
         </tbody>
       </table>
 
