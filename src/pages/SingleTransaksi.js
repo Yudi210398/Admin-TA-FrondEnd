@@ -26,8 +26,6 @@ function SingleTransaksi() {
 
   const terkirimAcc = data?.resiPengiriman && data?.gambarResi.url && true;
 
-  console.log(terkirimAcc);
-
   return (
     <Container>
       <div className="row justify-content-center">

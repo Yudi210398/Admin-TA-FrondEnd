@@ -1,7 +1,6 @@
 import React from "react";
 import { Button, Modal } from "react-bootstrap";
 function ModalTransaksi(props) {
-  console.log(props);
   return (
     <Modal
       {...props}
