@@ -19,6 +19,7 @@ import PengirimanSukses from "./pages/components/delivery/PengirimanSukses";
 import BelumKirim from "./pages/components/delivery/BelumKirim";
 import { OrderSelesai } from "./pages/components/allOrder/OrderNotif/OrderSelesai";
 import { OrderBelumSelesai } from "./pages/components/allOrder/OrderNotif/OrderBelumSelesai";
+import ParentGagalTranssaksi from "./pages/components/singleTransaksi/ParentGagalTransaksi/ParentGagalTranssaksi";
 
 function App() {
   const { datas } = useHttpRefreshToken();
@@ -26,7 +27,7 @@ function App() {
   const onLogin = useCallback(
     (tokenLogin, refreshToken, login) =>
       dispatch(isLogin({ tokenLogin, refreshToken, login })),
-    [dispatch]
+    [dispatch],
   );
 
   const { tokenLogin, login } = useSelector((state) => state.authLogin);
@@ -41,7 +42,7 @@ function App() {
         onLogin(
           datas.length === 0 ? dataAdmin?.token : datas,
           dataAdmin?.refreshtoken,
-          dataAdmin?.login
+          dataAdmin?.login,
         );
       } else
         onLogin(dataAdmin?.token, dataAdmin?.refreshtoken, dataAdmin?.login);
@@ -97,6 +98,11 @@ function App() {
           <Route
             path="/orderresi/:_resi"
             element={<ParerntSuksesTransaksi />}
+          />
+
+          <Route
+            path="/gagaltransaksi/:_gagalresi"
+            element={<ParentGagalTranssaksi />}
           />
 
           <Route path="*" element={<Navigate to="/data" replace />} />
