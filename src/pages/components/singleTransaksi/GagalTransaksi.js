@@ -1,10 +1,13 @@
 import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
 
-const GagalTransaksi = () => {
+const GagalTransaksi = ({ dataIdGagal }) => {
+  console.log(dataIdGagal, `kocak`);
   return (
     <Fragment>
-      <Link className="btn btn-danger">Transaksi Gagal dan berikan Alasan</Link>
+      <Link to={`/gagaltransaksi/${dataIdGagal}`} className="btn btn-danger">
+        Transaksi Gagal dan berikan Alasan
+      </Link>
     </Fragment>
   );
 };

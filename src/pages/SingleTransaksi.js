@@ -22,7 +22,6 @@ function SingleTransaksi() {
   const { idorder } = useParams();
 
   const { data, pesanVerify } = useOrderId(idorder);
-  console.log(data?.buktiTranfer);
 
   const terkirimAcc = data?.resiPengiriman && data?.gambarResi.url && true;
 
@@ -194,7 +193,7 @@ function SingleTransaksi() {
                 </div>
 
                 <div className="col-6">
-                  <GagalTransaksi />
+                  <GagalTransaksi dataIdGagal={data?._id} />
                 </div>
               </div>
             </Fragment>
