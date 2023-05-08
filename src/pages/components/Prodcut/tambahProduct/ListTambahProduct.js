@@ -57,7 +57,7 @@ export const dropdownOptions = [
 export const yupImage = (data) => {
   if (data === true)
     return Yup.mixed()
-      .required("Please select an image of the house for upload")
+      .required("Masukan Gambar Cuk")
       .test("FILE_SIZE", "File size is too big", (value) => {
         if (value && value?.length > 0) {
           for (let i = 0; i < value.length; i++) {

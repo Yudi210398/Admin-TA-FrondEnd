@@ -27,7 +27,7 @@ function App() {
   const onLogin = useCallback(
     (tokenLogin, refreshToken, login) =>
       dispatch(isLogin({ tokenLogin, refreshToken, login })),
-    [dispatch],
+    [dispatch]
   );
 
   const { tokenLogin, login } = useSelector((state) => state.authLogin);
@@ -42,7 +42,7 @@ function App() {
         onLogin(
           datas.length === 0 ? dataAdmin?.token : datas,
           dataAdmin?.refreshtoken,
-          dataAdmin?.login,
+          dataAdmin?.login
         );
       } else
         onLogin(dataAdmin?.token, dataAdmin?.refreshtoken, dataAdmin?.login);
