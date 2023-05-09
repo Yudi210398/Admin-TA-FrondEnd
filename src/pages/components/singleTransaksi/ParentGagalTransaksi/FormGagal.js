@@ -15,7 +15,6 @@ const FormGagal = () => {
   const { sendRequest } = useHttp();
 
   const { _gagalresi } = useParams();
-  console.log(_gagalresi);
   const initialValues = {
     alasanDibatalkan: "",
     gambarTranferRefundBatal: null,
@@ -27,8 +26,6 @@ const FormGagal = () => {
   });
 
   const onSubmit = async (values) => {
-    console.log(values);
-
     try {
       const formData = new FormData();
 

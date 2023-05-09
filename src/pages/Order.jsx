@@ -8,7 +8,9 @@ function Order(props) {
   const { data, pesanVerify } = useOrderHttp();
   const dataReverse = data.reverse();
   let dataorder = [];
+  console.log(props);
   dataReverse.map((datas) => {
+    console.log(datas, `kocak`, props);
     if (
       props?.transaksiselesai &&
       datas?.validasiPenerima.suksesTerima === "Telah terima"
@@ -16,7 +18,8 @@ function Order(props) {
       dataorder.push(datas);
     else if (
       props?.transaksibelumselesai &&
-      !datas?.validasiPenerima.suksesTerima
+      !datas?.validasiPenerima.suksesTerima &&
+      datas?.orderBatal.dibatalkan
     )
       dataorder.push(datas);
     else if (
@@ -28,7 +31,8 @@ function Order(props) {
     else if (
       props?.gagalkirim &&
       datas?.resiPengiriman === null &&
-      !datas?.gambarResi.url
+      !datas?.gambarResi.url &&
+      !datas?.orderBatal.dibatalkan
     )
       dataorder.push(datas);
 
@@ -42,7 +46,6 @@ function Order(props) {
       ? dataorder
       : dataReverse;
 
-  console.log(resultORderFix, `kocak`);
   return (
     <Container>
       <table className="table table-striped table-hover">
@@ -61,7 +64,7 @@ function Order(props) {
             console.log(
               hasil.orderBatal.alasanDibatalkan &&
                 hasil.orderBatal.dibatalkan &&
-                true,
+                true
             );
             return (
               <OrderList
