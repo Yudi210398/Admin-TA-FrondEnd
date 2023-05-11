@@ -17,7 +17,7 @@ export const currency = (daTa) =>
 
 function SingleTransaksi() {
   const [modalShow, setModalShow] = useState(false);
-  const [modalShowResi, setModalShowResi] = useState(false);
+  const [modalShowResi, setModalShowResi] = useState("");
 
   const { idorder } = useParams();
 
@@ -25,11 +25,50 @@ function SingleTransaksi() {
 
   const terkirimAcc = data?.resiPengiriman && data?.gambarResi.url && true;
 
+  const accBatal =
+    data?.orderBatal?.dibatalkan &&
+    data?.orderBatal?.gambarTranferRefundBatal?.url;
+  let tombolInputss;
+
+  if (!accBatal && !terkirimAcc)
+    tombolInputss = (
+      <Fragment>
+        <br />
+        <br />
+        <br />
+        <br />
+        <div className={`row ${classes.content} justify-content-center`}>
+          <div className="col-6">
+            <SuksesTransaksi idData={data?._id} />
+          </div>
+
+          <div className="col-6">
+            <GagalTransaksi dataIdGagal={data?._id} />
+          </div>
+        </div>
+      </Fragment>
+    );
+
+  let modalResiShow;
+  let gambarResiShow;
+  if (modalShowResi === "buktiTranfer") {
+    modalResiShow = "Bukti Transfer";
+    gambarResiShow = data?.buktiTranfer;
+  } else if (modalShowResi === "resiPengiriman") {
+    modalResiShow = "Resi Pengiriman";
+    gambarResiShow = data?.gambarResi;
+  } else {
+    modalResiShow = "Bukti Pengembalian Dana";
+    gambarResiShow = data?.orderBatal?.gambarTranferRefundBatal;
+  }
+
   return (
     <Container>
       <div className="row justify-content-center">
         <div className="col-12">
-          <h1 className={classes.title}>DETAIL TRANSAKSI</h1>
+          <h1 className={classes.title}>
+            {accBatal ? "PEMBATALAN DETAIL TRANSAKSI" : "DETAIL TRANSAKSI"}
+          </h1>
         </div>
 
         <div className="col-12">
@@ -98,7 +137,11 @@ function SingleTransaksi() {
 
             <div className="col-8">
               <img
-                onClick={() => setModalShow(true)}
+                onClick={() => {
+                  setModalShow(true);
+
+                  setModalShowResi("buktiTranfer");
+                }}
                 width="150px"
                 height="150px"
                 src={data?.buktiTranfer?.url}
@@ -108,8 +151,8 @@ function SingleTransaksi() {
             </div>
 
             <ModalTransaksi
-              labelmodal={!modalShowResi ? "Bukti Transfer" : "Resi Pengiriman"}
-              bukti={!modalShowResi ? data?.buktiTranfer : data.gambarResi}
+              labelmodal={modalResiShow}
+              bukti={gambarResiShow}
               show={modalShow}
               onHide={() => {
                 setModalShowResi(false);
@@ -143,7 +186,7 @@ function SingleTransaksi() {
                   <img
                     onClick={() => {
                       setModalShow(true);
-                      setModalShowResi(true);
+                      setModalShowResi("resiPengiriman");
                     }}
                     width="150px"
                     height="150px"
@@ -158,6 +201,38 @@ function SingleTransaksi() {
                   show={modalShow}
                   onHide={() => setModalShow(false)}
                 /> */}
+              </Fragment>
+            )}
+
+            {accBatal && (
+              <Fragment>
+                <div className="col-4">
+                  <h1 className={classes.subtitle}>ALASAN PEMBATALAN ORDER</h1>
+                </div>
+
+                <div className="col-8">
+                  <h1 className={classes.datas}>
+                    {data?.orderBatal?.alasanDibatalkan}
+                  </h1>
+                </div>
+
+                <div className="col-4">
+                  <h1 className={classes.subtitle}>BUKTI PENGEMBALIAN DANA</h1>
+                </div>
+
+                <div className="col-8">
+                  <img
+                    onClick={() => {
+                      setModalShow(true);
+                      setModalShowResi("");
+                    }}
+                    width="150px"
+                    height="150px"
+                    src={data?.orderBatal?.gambarTranferRefundBatal?.url}
+                    className={`rounded float-start ${classes.gambar}`}
+                    alt="gambarTransaksi"
+                  />
+                </div>
               </Fragment>
             )}
           </div>
@@ -181,23 +256,7 @@ function SingleTransaksi() {
             ))}
           </div>
 
-          {!terkirimAcc && (
-            <Fragment>
-              <br />
-              <br />
-              <br />
-              <br />
-              <div className={`row ${classes.content} justify-content-center`}>
-                <div className="col-6">
-                  <SuksesTransaksi idData={data?._id} />
-                </div>
-
-                <div className="col-6">
-                  <GagalTransaksi dataIdGagal={data?._id} />
-                </div>
-              </div>
-            </Fragment>
-          )}
+          {tombolInputss}
           <br />
 
           <br />

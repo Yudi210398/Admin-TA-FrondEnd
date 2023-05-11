@@ -14,7 +14,7 @@ export const SidebarData = [
     iconOpened: <RiIcons.RiArrowUpSFill />,
   },
   {
-    title: "DATA ORDER",
+    title: "SEMUA ORDER",
     path: "/oder",
     icon: <IoIcons.IoIosPaper />,
     iconClosed: <RiIcons.RiArrowDownSFill />,
