@@ -6,6 +6,7 @@ import { useAllCustomer } from "../shared/util/httpAllCutomer";
 const Overview = () => {
   const { datas } = useAllCustomer();
   const { contenOutNav } = useSelector((state) => state.outNav);
+
   return (
     <div className={`row ${contenOutNav ? classes.navOut : classes.navIn}`}>
       <div className="col-3">
