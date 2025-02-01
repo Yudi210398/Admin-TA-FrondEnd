@@ -7,6 +7,7 @@ import FormGagal from "./FormGagal";
 const ParentGagalTranssaksi = () => {
   const { _gagalresi } = useParams();
   const { data, pesanVerify } = useOrderId(_gagalresi);
+  console.log(pesanVerify);
   console.log(data);
   return (
     <Container>

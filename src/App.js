@@ -29,7 +29,6 @@ function App() {
       dispatch(isLogin({ tokenLogin, refreshToken, login })),
     [dispatch]
   );
-
   const { tokenLogin, login } = useSelector((state) => state.authLogin);
   useEffect(() => {
     const dataAdmin = JSON.parse(localStorage.getItem("dataAdmin"));
@@ -63,6 +62,7 @@ function App() {
     }
   }, [onLogin, datas, login]);
   let ruting;
+  console.log(tokenLogin, `wkwkw`);
   if (tokenLogin) {
     ruting = (
       <Fragment>
